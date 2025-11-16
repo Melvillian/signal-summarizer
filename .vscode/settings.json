@@ -1,0 +1,62 @@
+{
+  "eslint.probe": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "markdown",
+    "html",
+    "json"
+  ],
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "cSpell.words": [
+    "bhouston",
+    "Buildx",
+    "bunx",
+    "cacheable",
+    "fortawesome",
+    "gcloud",
+    "GLTF",
+    "healthcheck",
+    "interruptible",
+    "lerp",
+    "microbundle",
+    "Nullary",
+    "nvmrc",
+    "reactflow",
+    "reserialization",
+    "reserialized",
+    "Slerp",
+    "tailwindcss",
+    "threeify",
+    "vinxi"
+  ],
+
+  "editor.rulers": [160],
+
+  // Workbench
+  "workbench.editor.enablePreview": false, // Opens files in new tab instead of preview
+
+  // JavaScript/TypeScript specific
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "javascript.preferences.importModuleSpecifier": "relative",
+
+  // TypeScript specific
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "typescript.preferences.importModuleSpecifier": "relative",
+
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": ["source.formatDocument", "source.fixAll.eslint"],
+  "files.exclude": {
+    "**/.git": true,
+    "**/.nx": true
+  },
+
+  "css.validate": false,
+  "tailwindCSS.includeLanguages": {
+    "typescript": "javascript",
+    "typescriptreact": "javascript"
+  },
+  "tailwindCSS.emmetCompletions": true
+}

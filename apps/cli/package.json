@@ -1,0 +1,21 @@
+{
+  "name": "cli",
+  "version": "1.2.3",
+  "type": "module",
+  "source": "./src/index.ts",
+  "main": "./dist/index.js",
+  "bin": "./bin/cli.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "typecheck": "tsc --noEmit",
+    "start": "node bin/cli.js"
+  },
+  "dependencies": {
+    "@bhouston/common-lib": "workspace:*",
+    "commander": "^14.0.2"
+  },
+  "devDependencies": {
+    "source-map-support": "~0.5.21"
+  }
+}
