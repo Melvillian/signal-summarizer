@@ -12,6 +12,9 @@ export const createRouter = () => {
   });
 };
 
+// Export getRouter for TanStack Start
+export const getRouter = createRouter;
+
 // Register the router instance for type safety
 declare module '@tanstack/react-router' {
   interface Register {

@@ -4,14 +4,14 @@
   "type": "module",
   "scripts": {
     "dev": "vite dev --port 3000",
-    "start": "node .output/server/index.mjs",
+    "start": "bun .output/server/index.mjs",
     "build": "vite build",
     "serve": "vite preview",
     "typecheck": "tsc --noEmit",
     "test": "vitest run"
   },
   "dependencies": {
-    "@bhouston/react-lib": "workspace:*",
+    "@melvillian/react-lib": "workspace:*",
     "@tailwindcss/vite": "^4.0.6",
     "@tanstack/react-devtools": "^0.2.2",
     "@tanstack/react-router": "^1.131.27",

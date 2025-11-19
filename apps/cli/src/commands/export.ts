@@ -1,8 +1,8 @@
 import { Command } from 'commander';
 import { subDays } from 'date-fns';
+import { isOk } from 'wellcrafted/result';
 
 import { signalExport } from '../utilities/signalExport.js';
-import { isOk } from 'wellcrafted/result';
 
 const exportCommand = new Command('export')
   .description('Export Signal chat history to markdown')
@@ -22,7 +22,7 @@ const exportCommand = new Command('export')
   .option(
     '--output <directory>',
     'Output directory',
-    '/tmp/signal-summarizer-output/',
+    '/tmp/signal-summarizer-output',
   )
   .action(async (options) => {
     try {

@@ -1,5 +1,5 @@
 {
-  "name": "@bhouston/node-lib",
+  "name": "@melvillian/node-lib",
   "version": "1.0.0",
   "type": "module",
   "main": "dist/index.js",
@@ -10,8 +10,7 @@
     "build": "tsc",
     "typecheck": "tsc --noEmit"
   },
-  "devDependencies": {
-  },
+  "devDependencies": {},
   "dependencies": {
     "@google-cloud/storage": "^7.12.1",
     "dotenv": "^16.4.5",

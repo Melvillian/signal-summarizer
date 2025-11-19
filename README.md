@@ -2,17 +2,13 @@
 
 This is a template for a monorepo that uses best practices for TypeScript, Web Services and React.
 
-It is what @bhouston considers best practice in February 2025.
+It is what @melvillian considers best practice in February 2025.
 
 This app is maintained in part by https://mycoder.ai
 
-## The end result
-
-<img width="573" alt="Screenshot 2024-01-09 at 4 53 45 PM" src="https://github.com/bhouston/template-typescript-monorepo/assets/588541/3a7e6b62-ff16-492d-9f20-b409ab84f104">
-
 ## Features
 
-- Mono-repository using pnpm workspaces
+- Mono-repository using bun workspaces
 - TypeScript for type safety
 - ES Modules for fast builds
 - NodeNext node resolution
@@ -21,7 +17,7 @@ This app is maintained in part by https://mycoder.ai
 - Both react and vanilla JS libraries
 - Command line, React app, and web server
 - Vite for Bundling, CSS Handling, Live Reloading
-- CLI via @yargs + file commands
+- CLI via commander + file commands
 - @TanStack/start for router, SSR, server API
 - Fastify for server with file-based router
 - Hot reload of React
@@ -35,22 +31,22 @@ This app is maintained in part by https://mycoder.ai
 ## Getting Started
 
 1. Clone this repository
-2. Run `pnpm install`
+2. Run `bun install`
 
 ### Tests
 
-1. Run `pnpm test` to run all tests
-2. Run `pnpm test:watch` for watch mode during development
-3. Run `pnpm test:coverage` to generate test coverage report
+1. Run `bun run test` to run all tests
+2. Run `bun run test:watch` for watch mode during development
+3. Run `bun run test:coverage` to generate test coverage report
 
 ### Continuous Dev Build
 
-1. Run `pnpm dev` to start the hot reload development server & build watchers
+1. Run `bun run dev` to start the hot reload development server & build watchers
 
 ### Optimized Production Build
 
-1. Run `pnpm build` to build the source
+1. Run `bun run build` to build the source
 
 ### Command Line
 
-1. Run `pnpm cli` to run the CLI example
+1. Run `bun run cli` to run the CLI example

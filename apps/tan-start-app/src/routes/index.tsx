@@ -1,4 +1,4 @@
-import { HelloWorld } from '@bhouston/react-lib';
+import { HelloWorld } from '@melvillian/react-lib';
 import { createFileRoute } from '@tanstack/react-router';
 
 const HomePage: React.FC = () => {
@@ -22,7 +22,7 @@ export const Route = createFileRoute('/')({
   head: () => ({
     meta: [
       {
-        title: "Ben Houston's TypeScript Monorepo Template",
+        title: "Melvillian's TypeScript Monorepo Template",
       },
       {
         name: 'description',

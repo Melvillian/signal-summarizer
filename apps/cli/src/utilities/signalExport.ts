@@ -58,6 +58,41 @@ async function checkBinaryExists(): Promise<Result<boolean, string>> {
 }
 
 /**
+ * Prepares the output directory for the export
+ * signalexport will refuse to do anything if the output directory already exists,
+ * so we need to move it to a backup directory if it does
+ *
+ * @param outputDir - The output directory to prepare
+ * @returns Result containing the output paths or error
+ */
+async function prepareOutputDirectory(
+  outputDir: string,
+): Promise<Result<void, string>> {
+  try {
+    // Try to stat outputDir
+    await fs.stat(outputDir);
+    // If stat succeeds, dir exists. Move to backup.
+    const backupDir = `${outputDir}-bak`;
+
+    // Remove any existing backup directory, if needed
+    try {
+      await fs.rm(backupDir, { recursive: true, force: true });
+    } catch {
+      // Ignore if does not exist
+    }
+
+    await fs.rename(outputDir, backupDir);
+    return Ok(undefined);
+  } catch (err: any) {
+    if (err.code !== 'ENOENT') {
+      // Other error besides "does not exist"
+      return Err(`Failed to access output directory: ${err.message ?? err}`);
+    }
+    return Ok(undefined);
+  }
+}
+
+/**
  * Exports Signal chat history to markdown format
  *
  * @param options - Configuration options
@@ -74,7 +109,7 @@ export async function signalExport(
   const start = options.start ?? subDays(new Date(), 7);
   const end = options.end ?? new Date();
   const chatName = options.chatName ?? 'Burlington Odd Fellows Members';
-  const outputDir = options.outputDir ?? '/tmp/signal-summarizer-output/';
+  const outputDir = options.outputDir ?? '/tmp/signal-summarizer-output';
 
   // Check if binary exists
   const binaryCheck = await checkBinaryExists();
@@ -90,6 +125,12 @@ export async function signalExport(
   const command = `sigexport --start "${startStr}" --end "${endStr}" --chats "${chatName}" "${outputDir}"`;
 
   try {
+    const prepareOutputDirectoryResult =
+      await prepareOutputDirectory(outputDir);
+    if (!isOk(prepareOutputDirectoryResult)) {
+      return Err(prepareOutputDirectoryResult.error);
+    }
+
     // Execute sigexport command
     const { stdout, stderr } = await execAsync(command);
 
@@ -103,7 +144,7 @@ export async function signalExport(
 
     // Verify output file exists
     const chatDirName = chatNameToDirectoryName(chatName);
-    const chatMarkdownPath = `${outputDir}${chatDirName}/chat.md`;
+    const chatMarkdownPath = `${outputDir}/${chatDirName}/chat.md`;
 
     try {
       const stats = await fs.stat(chatMarkdownPath);
