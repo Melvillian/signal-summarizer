@@ -10,7 +10,7 @@
     "build": "bun --filter '*' build",
     "dev": "bun --filter '*' --parallel --stream dev",
     "start": "bun --filter tan-start-app start",
-    "cli": "bun --filter cli start",
+    "cli": "bun --filter cli --elide-lines=0 start",
     "clean": "rimraf dist packages/**/dist apps/**/dist",
     "clean:all": "rimraf dist node_modules packages/**/node_modules packages/**/dist apps/**/node_modules apps/**/dist",
     "lint:check": "eslint .",

@@ -1,8 +1,8 @@
 import { createRequire } from 'module';
 
 import { Command } from 'commander';
-import hello from './commands/hello.js';
 import exportCommand from './commands/export.js';
+import summarizeCommand from './commands/summarize.js';
 
 declare const BUILD_VERSION: string;
 interface PackageJson {
@@ -34,8 +34,8 @@ export const main = async () => {
 
   program.name('cli').version(version).showHelpAfterError(true);
 
-  program.addCommand(hello);
   program.addCommand(exportCommand);
+  program.addCommand(summarizeCommand);
 
   return program.parseAsync(process.argv);
 };
