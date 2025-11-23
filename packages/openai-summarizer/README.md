@@ -1,119 +1,25 @@
-# Testing Documentation
+# OpenAI Summarizer
 
-## Test Configuration Structure
+This package provides utility functions for generating text summaries using the OpenAI API.
 
-The test configuration is managed through the following files:
+## Requirements
 
-- `jest.config.js` - Main Jest configuration file
-- `tsconfig.json` - TypeScript configuration for tests
+- [Bun](https://bun.sh/docs/installation) runtime
+- An OpenAI API key
 
-## Running Tests
-
-You can run tests using the following npm commands:
+## Build
 
 ```bash
-# Run all tests
-npm test
-
-# Run tests in watch mode
-npm test:watch
-
-# Run tests with coverage
-npm test:coverage
+bun install
+bun run build
 ```
 
-## Test File Naming Conventions
+## Usage
 
-Follow these naming conventions for test files:
+Import and use in your project to summarize text with OpenAI. You must set the `OPENAI_API_KEY` environment variable.
 
-- Test files should be named with `.test.ts` or `.spec.ts` extension
-- Test files should be placed next to the source files they test
-- Use descriptive names that match the module being tested
-
-Example:
-
-```
-src/
-  ├── utils/
-  │   ├── parser.ts
-  │   └── parser.test.ts
-  └── services/
-      ├── auth.ts
-      └── auth.test.ts
+```bash
+export OPENAI_API_KEY=sk-your-api-key
 ```
 
-## Coverage Reporting
-
-Test coverage reports are generated automatically when running `npm test:coverage`. The coverage report includes:
-
-- Statement coverage
-- Branch coverage
-- Function coverage
-- Line coverage
-
-Coverage reports are generated in the `coverage/` directory.
-
-## Testing Best Practices
-
-1. **Test Organization**
-   - Use describe blocks to group related tests
-   - Use clear, descriptive test names
-   - Follow the Arrange-Act-Assert pattern
-
-2. **Mocking**
-   - Mock external dependencies
-   - Use Jest's mock functions for callbacks and services
-   - Keep mocks simple and focused
-
-3. **Test Isolation**
-   - Each test should be independent
-   - Clean up after tests using beforeEach/afterEach
-   - Don't share state between tests
-
-4. **Assertions**
-   - Use specific assertions (prefer `toBe` over `toEqual` when possible)
-   - Test both positive and negative cases
-   - Include edge cases
-
-Example Test:
-
-```typescript
-describe('Parser', () => {
-  describe('parseConfig', () => {
-    it('should parse valid configuration', () => {
-      // Arrange
-      const input = '{"key": "value"}';
-
-      // Act
-      const result = parseConfig(input);
-
-      // Assert
-      expect(result).toEqual({
-        key: 'value',
-      });
-    });
-
-    it('should throw error for invalid JSON', () => {
-      // Arrange
-      const input = '{invalid json}';
-
-      // Act & Assert
-      expect(() => parseConfig(input)).toThrow('Invalid JSON');
-    });
-  });
-});
-```
-
-## Continuous Integration
-
-Tests are automatically run in the CI pipeline for:
-
-- Pull requests
-- Merges to main branch
-- Release builds
-
-The CI pipeline will fail if:
-
-- Any tests fail
-- Coverage drops below configured thresholds
-- TypeScript compilation errors exist
+This package is intended to be used as a dependency rather than run standalone.

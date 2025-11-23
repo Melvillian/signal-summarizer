@@ -4,7 +4,7 @@ A command-line tool for exporting Signal chat history and generating AI-powered 
 
 ## Requirements
 
-- Bun runtime
+- [Bun](https://bun.sh/docs/installation) runtime
 - Signal Desktop application with accessible database
 - OpenAI API key (for summarization)
 
@@ -17,23 +17,23 @@ bun install
 # add your openai key, needed for summarization
 export OPENAI_API_KEY=sk-proj-your-api-key
 
-# build the cli
-bun run --filter cli build
+# build the cli and all its dependencies
+bun run build
 ```
 
 ## Complete Workflow Example
 
-Build the CLI, export a chat, and generate summaries in one command:
+1. Build the CLI
+2. Export the last 7 days worth of chat history in the 'Burlington Odd Fellows Members' chat
+3. Generate the summary in one command
+
+Note, you must replace 'sk-proj-your-key' with your actual OPENAI_API_KEY.
+
+This will print out a summary of the chats from the last 7 days.
 
 ```bash
-bun run --filter cli build && bun run cli export && OPENAI_API_KEY=sk-proj-your-key bun run cli summarize
+bun run build && bun run cli export && OPENAI_API_KEY=sk-proj-your-key bun run cli summarize
 ```
-
-This will:
-
-1. Build the CLI application
-2. Export the last 7 days of chat history to markdown
-3. Generate AI-powered summaries of the exported chat grouped by day
 
 ## Commands
 
