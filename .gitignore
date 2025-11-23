@@ -3,9 +3,6 @@ node_modules
 .env
 dist
 build
-apps/react-app/public/js
-apps/react-app/public/index.js
-apps/react-app/public/styles.css
 stats.html
 log.txt
 coverage
