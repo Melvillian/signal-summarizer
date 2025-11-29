@@ -32,7 +32,7 @@ Note, you must replace 'sk-proj-your-key' with your actual OPENAI_API_KEY.
 This will print out a summary of the chats from the last 7 days.
 
 ```bash
-bun run build && bun run cli export && OPENAI_API_KEY=sk-proj-your-key bun run cli summarize
+bun run build && bun run cli export && OPENAI_API_KEY=sk-proj-your-key bun run cli summarize --output ./summary.txt
 ```
 
 ## Commands
