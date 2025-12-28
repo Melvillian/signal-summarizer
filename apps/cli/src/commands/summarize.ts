@@ -1,4 +1,5 @@
 import fs from 'fs/promises';
+import path from 'path';
 
 import { summarizeText } from '@melvillian/openai-summarizer';
 import { Command } from 'commander';
@@ -81,7 +82,11 @@ const summarizeCommand = new Command('summarize')
     'Temperature for response generation (0-2)',
     '0.7',
   )
-  .option('--output <path>', 'Path to write the summary markdown file')
+  .option(
+    '--output <path>',
+    'Path to write the summary markdown file',
+    path.resolve(__dirname, '../../../../out/summary.md'),
+  )
   .action(async (options) => {
     try {
       console.log('Reading chat markdown file...');

@@ -7,3 +7,8 @@ stats.html
 log.txt
 coverage
 *.tsbuildinfo
+# default location summaries get stored
+out/*
+# needed so that git will track out/, which would otherwise be
+# empty without the .gitkeep
+!out/.gitkeep

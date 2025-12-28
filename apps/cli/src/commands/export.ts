@@ -70,8 +70,7 @@ const exportCommand = new Command('export')
       }
 
       console.log('✓ Export completed successfully!');
-      console.log(`  Output directory: ${result.data.outputPath}`);
-      console.log(`  Chat markdown: ${result.data.chatMarkdownPath}`);
+      console.log(`  Path to chat export: ${result.data.chatMarkdownPath}`);
     } catch (error) {
       console.error('Unexpected error:', error);
       process.exit(1);

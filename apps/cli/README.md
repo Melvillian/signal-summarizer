@@ -14,11 +14,14 @@ A command-line tool for exporting Signal chat history and generating AI-powered 
 cd /path/to/signal-summarizer
 bun install
 
-# add your openai key, needed for summarization
+# add your openai key, needed for summarization, or add the env var to apps/cli/.env
 export OPENAI_API_KEY=sk-proj-your-api-key
 
 # build the cli and all its dependencies
 bun run build
+
+# this will print the `--help` output of the CLI command
+bun run start
 ```
 
 ## Complete Workflow Example
@@ -29,10 +32,10 @@ bun run build
 
 Note, you must replace 'sk-proj-your-key' with your actual OPENAI_API_KEY.
 
-This will print out a summary of the chats from the last 7 days.
+This will add the summary to the `signal-summarizer/out` directory.
 
 ```bash
-bun run build && bun run cli export && OPENAI_API_KEY=sk-proj-your-key bun run cli summarize --output ./summary.txt
+bun run build && bun run cli export && OPENAI_API_KEY=sk-proj-your-key bun run cli summarize
 ```
 
 ## Commands
